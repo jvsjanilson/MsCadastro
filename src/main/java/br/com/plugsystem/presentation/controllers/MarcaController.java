@@ -5,10 +5,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/")
-public class HomeController {
-	@GetMapping
-	public String index() {
-		return "Home cadastros";
-	}
+@RequestMapping("/marcas")
+public class MarcaController {
+
+    @GetMapping
+    public String index()
+    {
+        return "Marcas";
+    }
+    
 }

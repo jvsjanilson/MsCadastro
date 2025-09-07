@@ -6,13 +6,21 @@ import org.springframework.stereotype.Component;
 import br.com.plugsystem.application.dto.produto.ProdutoRequest;
 import br.com.plugsystem.application.dto.produto.ProdutoResponse;
 import br.com.plugsystem.domain.models.ProdutoModel;
-import lombok.RequiredArgsConstructor;
 
 @Component
-@RequiredArgsConstructor
 public class ProdutoMapperImpl implements ProdutoMapper {
 
     private final ModelMapper mapper;
+
+    public ProdutoMapperImpl(ModelMapper mapper) {
+        this.mapper = mapper;
+
+        // mapper.typeMap(ProdutoModel.class, ProdutoResponse.class)
+        //     .addMapping(src -> src.getUnidade().getCodigo(), ProdutoResponse::setUnidadeCodigo)
+        //     .addMapping(src -> src.getCategoria().getNome(), ProdutoResponse::setCategoriaNome)
+        //     .addMapping(src -> src.getMarca().getNome(), ProdutoResponse::setMarcaNome)
+        // ;
+    }
 
     @Override
     public ProdutoResponse toResponse(ProdutoModel model) {
